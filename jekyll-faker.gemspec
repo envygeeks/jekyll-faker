@@ -1,6 +1,5 @@
 # Frozen-string-literal: true
 # Copyright: 2017 - Apache 2.0 License
-# rubocop:disable Metrics/BlockLength
 # Encoding: utf-8
 
 $LOAD_PATH.unshift(File.expand_path("lib", __dir__))
@@ -13,8 +12,9 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/anomaly/jekyll-faker/"
   s.files = %w(Rakefile Gemfile README.md LICENSE) + Dir["lib/**/*"]
   s.summary = "Mock content for your Jekyll prototypes"
+  s.required_ruby_version = ">= 2.3.0"
   s.email = ["jordon@envygeeks.io"]
-  s.license = "Apache 2.0"
+  s.license = "Apache-2.0"
   s.name = "jekyll-faker"
 
   s.description = s.description = <<~TXT
@@ -23,8 +23,13 @@ Gem::Specification.new do |s|
     this Sunday Sunday Sunday only.
   TXT
 
-  s.required_ruby_version = ">= 2.3.0"
   s.add_runtime_dependency("faker", "~> 1.8")
   s.add_runtime_dependency("liquid-tag-parser", "~> 1.8")
-  s.add_development_dependency("rspec", "~> 3.4")
+  s.add_runtime_dependency("liquid", "~> 4.0")
+
+  s.add_development_dependency("simplecov", "~> 0")
+  s.add_development_dependency("luna-rspec-formatters", "~> 3")
+  s.add_development_dependency("forwardable-extended", "~> 2")
+  s.add_development_dependency("nokogiri", "~> 1")
+  s.add_development_dependency("rspec", "~> 3")
 end
