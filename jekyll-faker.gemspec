@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency("simplecov", "~> 0")
   s.add_development_dependency("luna-rspec-formatters", "~> 3")
-  s.add_development_dependency("forwardable-extended", "~> 2")
   s.add_development_dependency("nokogiri", "~> 1")
   s.add_development_dependency("rspec", "~> 3")
 end
