@@ -37,13 +37,9 @@ module Jekyll
               out += super
             end
           rescue NoMethodError => e
-            if e.message =~ %r!Faker!i
-              return raise ArgumentError, "Unknown faker #{
-                args[:argv1]
-              }"
-            else
-              raise e
-            end
+            handle_missing_faker_method(e, {
+              args: args,
+            })
           end
         end
 
@@ -51,10 +47,22 @@ module Jekyll
       end
 
       # --
+      def handle_missing_faker_method(e, args:)
+        if e.message =~ %r!Faker!i
+          raise ArgumentError, "Unknown faker #{
+            args[:argv1]
+          }"
+        else
+          raise e
+        end
+      end
+
+      # --
       # rubocop:disable Style/PerlBackrefs.
       # @return [String] the camelized name of the runner.
       # Camelize the name of the class.
       # --
+      private
       def camelize(arg)
         arg.to_s.capitalize.gsub(%r!(?:-)([a-z]*)!) do
           $1.capitalize
@@ -62,18 +70,27 @@ module Jekyll
       end
 
       # --
+      private
       def discover(const)
         return ArgumentError, "No Faker given" unless const
         return ::Faker.const_get(const) if ::Faker.const_defined?(const)
-        out =  ::Faker.constants.grep(%r!^#{Regexp.escape(const)}$!i)
-        raise ArgumentError, "Bad argv1 #{const}" if out.size > 1
-        raise NameError if out.none?
-        out.first
+        matched_discovery(const)
       # --
       rescue NameError
         raise ArgumentError, "Invalid Faker: #{
           const
         }"
+      end
+
+      # --
+      private
+      def matched_discovery(const)
+        regexp = %r!^#{Regexp.escape(const)}$!i
+
+        out = ::Faker.constants.grep(regexp)
+        raise ArgumentError, "Bad argv1 #{const}" if out.size > 1
+        raise NameError if out.none?
+        out.first
       end
     end
   end
