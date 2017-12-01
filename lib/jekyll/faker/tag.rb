@@ -73,9 +73,8 @@ module Jekyll
       private
       def discover(const)
         return ArgumentError, "No Faker given" unless const
-        return ::Faker.const_get(const) if ::Faker.const_defined?(const)
-        matched_discovery(const)
-      # --
+        ::Faker.const_defined?(const) ? ::Faker.const_get(const) : \
+          matched_discovery(const)
       rescue NameError
         raise ArgumentError, "Invalid Faker: #{
           const
