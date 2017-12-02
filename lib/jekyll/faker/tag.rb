@@ -28,7 +28,7 @@ module Jekyll
           next if k == :argv1
 
           begin
-            result = fakr.send(k, Array(v))
+            result = fakr.send(k, *Array(v))
             Array(result).each do |sv|
               ctx["faker"] = {
                 "val" => sv,
@@ -89,7 +89,7 @@ module Jekyll
         out = ::Faker.constants.grep(regexp)
         raise ArgumentError, "Bad argv1 #{const}" if out.size > 1
         raise NameError if out.none?
-        out.first
+        ::Faker.const_get(out.first)
       end
     end
   end
