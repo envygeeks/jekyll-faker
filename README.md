@@ -44,7 +44,7 @@ If a Faker is a CamelCased class, for example "DrWho" (even though technically i
 or
 
 ```liquid
-{% faker id-number valid=2 %}
+{% faker id-number valid %}
   <p>{{ faker.val }}</p>
 {% endfaker %}
 ```
