@@ -72,4 +72,18 @@ describe Jekyll::Faker::Tag do
         %r!Unknown Faker!i)
     end
   end
+
+  #
+
+  context "w/ an add name" do
+    let :args do
+      "id-number valid"
+    end
+
+    #
+
+    it "works" do
+      expect(fragment(subject).search("p").size).to eq 1
+    end
+  end
 end
