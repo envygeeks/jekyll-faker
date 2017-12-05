@@ -31,6 +31,18 @@ w/ the result
 <p>Sentence 8</p>
 ```
 
+### Multiple Arguments
+
+If a class and method you wish to use takes multiple arguments, you can just replicate the method name, and we will ship those arguments into the method on your behalf.
+
+```liquid
+{% faker number between=1 between=10 %}
+  <small>
+    {{ faker.val }}
+  </small>
+{% endfaker %}
+```
+
 ### CamelCase classes
 
 If a Faker is a CamelCased class, for example "DrWho" (even though technically it's supposed to be DoctorWho, it's Doctor, not Dr, who even does that?) You can do the following:
