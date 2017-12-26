@@ -52,7 +52,7 @@ module Jekyll
 
       # --
       def handle_missing_faker_method(e, args:)
-        if e.message.match?(%r!Faker!i)
+        if e.message =~ %r!Faker!i
           raise ArgumentError, "Unknown faker #{
             args[:argv1]
           }"
