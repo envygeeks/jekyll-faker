@@ -26,7 +26,6 @@ env:
     - LIQUID_VERSION="~> 4.0"
     - LINTING=true
 rvm:
-  - 2.5
   - 2.4
   - 2.3
   - jruby-head
