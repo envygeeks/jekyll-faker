@@ -1,5 +1,5 @@
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/anomaly/jekyll-faker.svg?style=for-the-badge)](https://codeclimate.com/github/anomaly/jekyll-faker/maintainability)
-[![Code Climate](https://img.shields.io/codeclimate/coverage/github/anomaly/jekyll-faker.svg?style=for-the-badge)](https://codeclimate.com/github/anomaly/jekyll-faker/test_coverage)
+[![Code Climate](https://img.shields.io/codeclimate/c/anomaly/jekyll-faker.svg?style=for-the-badge)](https://codeclimate.com/github/anomaly/jekyll-faker/coverage)
 [![Travis CI](https://img.shields.io/travis/anomaly/jekyll-faker/master.svg?style=for-the-badge)](https://travis-ci.org/anomaly/jekyll-faker)
 ![Gem Version](https://img.shields.io/gem/v/jekyll-faker.svg?style=for-the-badge)
 ![Gem DL](https://img.shields.io/gem/dt/jekyll-faker.svg?style=for-the-badge)
