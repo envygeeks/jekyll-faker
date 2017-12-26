@@ -25,6 +25,7 @@ doneMsg() {
 }
 
 skip_if_exists=(Gemfile)
+skip_if_external=(CONTRIBUTING.md CODE_OF_CONDUCT.md)
 gurl=https://github.com/envygeeks
 cdir=$PWD
 
@@ -42,12 +43,30 @@ for g in "ruby-dev" "github-dev"; do
   for f in $(ls -a | grep -vE '^(\.{1,2}|\.git)$'); do
     skip=false
 
+    # --
+    # Files we do not wish to copy if they already exist.
+    #   There is no reason to overwrite, or they will
+    #   generally just conflict.
+    # --
     for s in "${skip_if_exists[@]}"; do
       if [ "$f" = "$s" ] && [ -f "$cdir/$f" ]; then
         skip=true
       fi
     done
     
+    # --
+    # Files that shouldn't be copied if I'm not the lead
+    #   maintainer.  They might have their own stuff.
+    # --
+    if [ -f ".external" ]; then
+      for s in "${skip_if_external}"; do
+        if [ "$f" = "$s" ] && [ -f "$cdir/$f" ]; then
+          skip=true
+        fi
+      done
+    fi
+
+    # --
     if [ "$skip" = "true" ]; then
       continue
     else
