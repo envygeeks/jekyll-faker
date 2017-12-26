@@ -7,14 +7,14 @@
 # RSpec, MiniTest, Whatever.
 # --
 task :spec do
-  sh "script/test"
+  exec "script/test"
 end
 # --
 # 🔖
 # RSpec, MiniTest, Whatever.
 # --
 task :test do
-  sh "script/test"
+  exec "script/test"
 end
 # --
 # 🔖
@@ -22,7 +22,7 @@ end
 # Rubocop.
 # --
 task :rubocop do
-  sh "script/lint"
+  exec "script/lint"
 end
 # --
 # 🔖
@@ -30,7 +30,7 @@ end
 # Rubocop.
 # --
 task :lint do
-  sh "script/lint"
+  exec "script/lint"
 end
 
 # --
