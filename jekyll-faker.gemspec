@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.license = "Apache-2.0"
   s.name = "jekyll-faker"
 
-  s.description = s.description = <<~TXT
+  s.description = <<~TXT
     Provides mock content for your Jekyll prototypes when building a site,
     through the Faker gem, with all the fun stuff included, at no cost to you,
     this Sunday Sunday Sunday only.
