@@ -8,9 +8,18 @@
 
 Jekyll Faker is a Jekyll/Liquid wrapper around the Faker gem, it allows you to do anything that Faker allows you to do, as long as it's an acceptable format. It is disaware of it's surroundings, and is extensible by automatic upgrade, meaning... if faker adds new methods, or even new classes, you can continue to use it without needing to upgrade Jekyll Faker.
 
-## Example
+## Installing
 
-Given faker has a class called `Lorem`, and that class `Lorem` accepts messages to the `sentences` method, you can do the following to extract the data from Faker:
+```ruby
+gem "jekyll-faker"
+gem "jekyll-faker", {
+  git: "https://github.com/anomaly/jekyll-faker.git"
+}
+```
+
+## Usage
+
+Given faker has a class called `Lorem`, and that class `Lorem` accepts messages to the method `sentences`, you can then do the following to extract the data from `Faker`:
 
 ```liquid
 {% faker lorem sentences=8 %}
@@ -33,7 +42,7 @@ w/ the result
 
 ### Multiple Arguments
 
-If a class and method you wish to use takes multiple arguments, you can just replicate the method name, and we will ship those arguments into the method on your behalf.
+If a class and method you wish to use takes multiple arguments, you can replicate the name of the method multiple times to create an array that will be expanded, and messaged to the method.  For example:
 
 ```liquid
 {% faker number between=1 between=10 %}
@@ -60,3 +69,5 @@ or
   <p>{{ faker.val }}</p>
 {% endfaker %}
 ```
+
+**We will attempt to determine the class name automatically, first, efficiently by assumign the dash is a literal for uppercase, and then by doing a simple regexp search, this should often result in the class being found.***
