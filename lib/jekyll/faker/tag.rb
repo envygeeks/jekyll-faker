@@ -8,6 +8,10 @@ require "faker"
 
 module Jekyll
   module Faker
+    # --
+    # Provides `{% faker %}` tag for Liquid.
+    #   This is not tied to Jekyll.
+    # --
     class Tag < Liquid::Block
       public_class_method :new
 
@@ -48,7 +52,7 @@ module Jekyll
 
       # --
       def handle_missing_faker_method(e, args:)
-        if e.message =~ %r!Faker!i
+        if e.message.match?(%r!Faker!i)
           raise ArgumentError, "Unknown faker #{
             args[:argv1]
           }"
