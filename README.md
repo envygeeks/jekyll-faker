@@ -70,4 +70,4 @@ or
 {% endfaker %}
 ```
 
-**We will attempt to determine the class name automatically, first, efficiently by assumign the dash is a literal for uppercase, and then by doing a simple regexp search, this should often result in the class being found.***
+**We will attempt to determine the class name automatically, first, efficiently by assuming the dash is a literal for uppercase, and then by doing a simple regexp search, this should often result in the class being found.***
