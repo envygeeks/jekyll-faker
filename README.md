@@ -10,12 +10,23 @@ Jekyll Faker is a Jekyll/Liquid wrapper around the Faker gem, it allows you to d
 
 ## Installing
 
+Add one of the following lines to your site's `Gemfile`, and then run `bundle install` on the command-line.
+
 ```ruby
 gem "jekyll-faker"
 gem "jekyll-faker", {
   git: "https://github.com/anomaly/jekyll-faker.git"
 }
 ```
+
+Add `jekyll-faker` to the `plugins:` section in your site's `_config.yml` file.
+
+```yml
+plugins:
+  - jekyll-faker
+```
+
+**Note:** *For versions of Jekyll older than 3.5, use `gems` in place of `plugins` in the example above.*
 
 ## Usage
 
